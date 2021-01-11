@@ -3,7 +3,9 @@
 It is a simple library for parse NMEA sentences (e.g. GPS/GLONASS/GALILEO) from serial port or any other object derived from Stream class.  
 
 Modied from FuGPS library by fu-hsi. Intended for learning and to assist in interfacing with Quectel MTK based GNSS modules (L70/L80/L86)
-Companion to dantasticdan/QWEB web interface for ESP32
+
+Companion to https://github.com/dantasticdan/QWEB
+_______________________________________________________
 
 ## Installation
 This library is available on Arduino Library Manager (should be after some time).  
