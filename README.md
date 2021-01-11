@@ -1,10 +1,9 @@
-# FuGPS Library
+# QuGPS Library
 
-It is a simple Arduino library for parse NMEA sentences (e.g. GPS/GLONASS/GALILEO) from serial port or any other object derived from Stream class.  
-I wrote only a few basic functions for the simplicity of use.  
+It is a simple library for parse NMEA sentences (e.g. GPS/GLONASS/GALILEO) from serial port or any other object derived from Stream class.  
 
-## Why another library?
-I wrote it for fun, learning and for my next project (meteorological balloon).
+Modied from FuGPS library assist in interfacing with Quectel MTK based GNSS modules (L70/L80/L86)
+Companion to dantasticdan/QWEB web interface for ESP32
 
 ## Installation
 This library is available on Arduino Library Manager (should be after some time).  
