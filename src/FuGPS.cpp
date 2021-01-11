@@ -1,4 +1,4 @@
-/**
+/*
  * FuGPS Library for Arduino
  * Copyright (c) 2018 Mariusz Kacki
  * The MIT License (MIT)
@@ -277,6 +277,34 @@ void FuGPS::process()
         Satellites = atoi(_tokens[7]);
         Accuracy = atof(_tokens[8]);
         Altitude = atof(_tokens[9]);
+    }
+        // =======PMTK Commands=========
+        else if (_tokensCount == 5 && strcmp(getMessageId(), "PMTK705") == 0)
+     {
+
+        strcpy(FWString, _tokens[1]);
+        //FWString = _tokens[1];
+        BuildID =  atoi(_tokens[2]);
+        strcpy(ProductModel, _tokens[3]);
+        //ProductModel = _tokens[3];
+
+    }
+        else if (_tokensCount == 2 && strcmp(getMessageId(), "PMTK501") == 0)
+    {
+        DGPSMode =  atoi(_tokens[1]);
+    }
+        else if (_tokensCount == 2 && strcmp(getMessageId(), "PMTK513") == 0)
+    {
+        SBASEnabled =  atoi(_tokens[1]);
+    }
+      // =======PMTK Logger=========
+        else if (_tokensCount == 11 && strcmp(getMessageId(), "PMTKLOG") == 0)
+    {
+        LogSerial =  atoi(_tokens[1]);
+        LogType =  atoi(_tokens[2]);
+        LogStatus =  atoi(_tokens[8]);
+        LogNumber =  atoi(_tokens[9]);
+        LogPercent =  atoi(_tokens[10]);
     }
 
     _lastRead = millis();

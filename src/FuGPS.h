@@ -36,6 +36,15 @@
 #define FUGPS_PMTK_SET_NMEA_UPDATERATE_5HZ      "$PMTK220,200*2C"
 #define FUGPS_PMTK_SET_NMEA_UPDATERATE_10HZ     "$PMTK220,100*2F"
 
+//Receiver Queries
+#define PMTK_Q_RELEASE             "$PMTK605*31"
+#define PMTK_API_Q_DGPS_MODE       "$PMTK401*37"
+#define PMTK_API_Q_SBAS_ENABLED    "$PMTK413*34"
+
+//Logger
+#define PMTK_LOCUS_QUERY_STATUS    "$PMTK183*38"
+
+
 // 80 characters of visible text (plus the line terminators).
 #define FUGPS_NMEA_BUFFER_LENGTH 82
 
@@ -62,6 +71,7 @@ private:
     char _currentBuff[FUGPS_NMEA_BUFFER_LENGTH + 1];
     char _sentenceBuff[FUGPS_NMEA_BUFFER_LENGTH + 1];
     char * _tokens[FUGPS_MAX_TOKENS];
+    char src[25] = "Hello Programmers."; //my stupid test
     
     byte _state = 0;
     byte _tokensCount;
@@ -135,6 +145,27 @@ public:
 
     // True course (Track)
     float Course;
+
+//FW Version
+    //char * FWString;
+    char FWString[25];
+    float BuildID;
+    char ProductModel[12];
+    //char * ProductModel;
+
+// DGPS Mode
+    byte DGPSMode;
+
+// SBAS Mode
+    byte SBASEnabled;
+
+// Logging
+    byte LogSerial;
+    byte LogType;
+    byte LogStatus;
+    byte LogNumber;
+    byte LogPercent;
+
 };
 
 #endif
